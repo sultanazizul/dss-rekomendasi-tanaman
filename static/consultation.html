@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konsultasi AI - AgriSmart</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div class="container" style="max-width: 800px; height: 90vh; display: flex; flex-direction: column;">
+        <header style="flex-shrink: 0;">
+            <h1><i class="fa-solid fa-robot"></i> Konsultasi AI</h1>
+            <p>Tanya jawab dan rekomendasi tanaman cerdas</p>
+            <a href="/" class="btn btn-secondary" style="margin-top: 10px; display: inline-block;">
+                <i class="fa-solid fa-arrow-left"></i> Kembali
+            </a>
+        </header>
+
+        <main class="chat-card">
+            <div id="chatHistory" class="chat-history">
+                <div class="message message-ai">
+                    <div class="avatar"><i class="fa-solid fa-robot"></i></div>
+                    <div class="bubble">
+                        Halo! Saya AgriSmart AI. Saya bisa membantu Anda memilih tanaman yang tepat atau menjawab
+                        pertanyaan seputar pertanian. Ada yang bisa saya bantu?
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <form id="chatForm">
+                    <input type="text" id="userInput" placeholder="Ketik pesan Anda..." autocomplete="off">
+                    <button type="submit" id="sendBtn" class="btn btn-primary">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="chat.js"></script>
+</body>
+
+</html>

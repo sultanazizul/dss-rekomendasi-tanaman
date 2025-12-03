@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Tanaman - AgriSmart</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div class="container" style="max-width: 900px;">
+        <header>
+            <h1><i class="fa-solid fa-seedling"></i> Daftar Tanaman</h1>
+            <p>Informasi lengkap kebutuhan tumbuh setiap tanaman</p>
+            <a href="/" class="btn btn-secondary" style="margin-top: 20px; display: inline-block;">
+                <i class="fa-solid fa-arrow-left"></i> Kembali ke Aplikasi
+            </a>
+        </header>
+
+        <main class="content-card">
+            <div id="loading" class="loading-container">
+                <div class="spinner"></div>
+                <p>Memuat data tanaman...</p>
+            </div>
+
+            <div id="cropsGrid" class="crops-grid hidden">
+                <!-- Crop cards will be injected here -->
+            </div>
+        </main>
+    </div>
+
+    <script src="crops.js"></script>
+</body>
+
+</html>

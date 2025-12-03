@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekomendasi Tanaman Cerdas</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1><i class="fa-solid fa-leaf"></i> AgriSmart</h1>
+            <p>Temukan tanaman terbaik untuk lahan Anda dengan metode AHP</p>
+            <a href="/learn.html" class="btn-link"><i class="fa-solid fa-circle-info"></i> Pelajari Metodenya</a>
+            <a href="/crops.html" class="btn-link"><i class="fa-solid fa-seedling"></i> Daftar Tanaman</a>
+            <a href="/consultation.html" class="btn-link"><i class="fa-solid fa-robot"></i> Konsultasi AI</a>
+        </header>
+
+        <main class="wizard-card">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <form id="wizardForm">
+                <!-- Step 1: Tanah & pH -->
+                <div class="step active" data-step="1">
+                    <h2>Kondisi Tanah</h2>
+                    <p class="step-desc">Bagaimana kondisi dasar tanah di lahan Anda?</p>
+
+                    <div class="input-group">
+                        <label for="ph">pH Tanah (0-14)</label>
+                        <div class="range-container">
+                            <input type="range" id="ph" name="ph" min="0" max="14" step="0.1" value="7">
+                            <span class="range-value" id="phValue">7.0</span>
+                        </div>
+                        <p class="hint">Netral adalah 7. Di bawah 7 asam, di atas 7 basa.</p>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Jenis Tanah</label>
+                        <div class="options-grid">
+                            <label class="option-card">
+                                <input type="radio" name="soil" value="Clay" checked>
+                                <div class="card-content">
+                                    <i class="fa-solid fa-layer-group"></i>
+                                    <span>Liat (Clay)</span>
+                                </div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="soil" value="Sandy">
+                                <div class="card-content">
+                                    <i class="fa-solid fa-wind"></i>
+                                    <span>Berpasir (Sandy)</span>
+                                </div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="soil" value="Loam">
+                                <div class="card-content">
+                                    <i class="fa-solid fa-mountain"></i>
+                                    <span>Gembur (Loam)</span>
+                                </div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="soil" value="Silt">
+                                <div class="card-content">
+                                    <i class="fa-solid fa-water"></i>
+                                    <span>Endapan (Silt)</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Iklim & Air -->
+                <div class="step" data-step="2">
+                    <h2>Iklim & Air</h2>
+                    <p class="step-desc">Seberapa banyak air dan hujan yang tersedia?</p>
+
+                    <div class="input-group">
+                        <label for="rain">Curah Hujan (mm/tahun)</label>
+                        <div class="range-container">
+                            <input type="range" id="rain" name="rain" min="0" max="4000" step="50" value="1500">
+                            <span class="range-value" id="rainValue">1500 mm</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Ketersediaan Irigasi</label>
+                        <div class="options-grid">
+                            <label class="option-card">
+                                <input type="radio" name="irrigation" value="0.3">
+                                <div class="card-content">
+                                    <i class="fa-solid fa-droplet-slash"></i>
+                                    <span>Rendah</span>
+                                </div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="irrigation" value="0.6" checked>
+                                <div class="card-content">
+                                    <i class="fa-solid fa-droplet"></i>
+                                    <span>Sedang</span>
+                                </div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="irrigation" value="1.0">
+                                <div class="card-content">
+                                    <i class="fa-solid fa-faucet-drip"></i>
+                                    <span>Tinggi</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Suhu & Matahari -->
+                <div class="step" data-step="3">
+                    <h2>Lingkungan</h2>
+                    <p class="step-desc">Bagaimana suhu dan pencahayaan di lokasi?</p>
+
+                    <div class="input-group">
+                        <label for="temp">Suhu Rata-rata (°C)</label>
+                        <div class="range-container">
+                            <input type="range" id="temp" name="temp" min="10" max="40" step="1" value="28">
+                            <span class="range-value" id="tempValue">28°C</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Intensitas Matahari</label>
+                        <div class="options-grid">
+                            <label class="option-card">
+                                <input type="radio" name="sun" value="0.3">
+                                <div class="card-content">
+                                    <i class="fa-solid fa-cloud"></i>
+                                    <span>Redup</span>
+                                </div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="sun" value="0.6">
+                                <div class="card-content">
+                                    <i class="fa-solid fa-cloud-sun"></i>
+                                    <span>Sedang</span>
+                                </div>
+                            </label>
+                            <label class="option-card">
+                                <input type="radio" name="sun" value="1.0" checked>
+                                <div class="card-content">
+                                    <i class="fa-solid fa-sun"></i>
+                                    <span>Terik</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="wizard-nav">
+                    <button type="button" id="prevBtn" class="btn btn-secondary" disabled>Kembali</button>
+                    <button type="button" id="nextBtn" class="btn btn-primary">Lanjut</button>
+                    <button type="submit" id="submitBtn" class="btn btn-success hidden">Analisis</button>
+                </div>
+            </form>
+
+            <!-- Results Section (Hidden initially) -->
+            <div id="results" class="results-container hidden">
+                <h2>Rekomendasi Tanaman</h2>
+                <p class="step-desc">Berdasarkan analisis AHP terhadap kondisi lahan Anda:</p>
+                <div id="recommendationList" class="recommendation-list">
+                    <!-- Items will be injected here -->
+                </div>
+                <button type="button" id="restartBtn" class="btn btn-secondary">Cek Lahan Lain</button>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div id="loading" class="loading-overlay hidden">
+                <div class="spinner"></div>
+                <p>Menganalisis data...</p>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
