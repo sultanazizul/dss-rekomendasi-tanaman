@@ -1,5 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from typing import List
 import sys
@@ -100,5 +102,16 @@ async def chat_endpoint(request: ChatRequest):
         print(f"Chat Error: {e}")
         return {"response": "Maaf, terjadi kesalahan pada sistem AI. Pastikan API Key sudah benar."}
 
-# Export for Vercel
-handler = app
+# Serve static files
+static_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "static")
+
+@app.get("/")
+async def serve_index():
+    return FileResponse(os.path.join(static_path, "index.html"))
+
+@app.get("/{filename:path}")
+async def serve_static(filename: str):
+    file_path = os.path.join(static_path, filename)
+    if os.path.exists(file_path):
+        return FileResponse(file_path)
+    return FileResponse(os.path.join(static_path, "index.html"))
