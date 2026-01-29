@@ -110,7 +110,7 @@ async def chat_endpoint(request: ChatRequest):
         gemini_history = []
         for msg in request.history:
             role = "user" if msg['role'] == 'user' else "model"
-            gemini_history.append({"role": role, "parts": [msg['content']]})
+            gemini_history.append({"role": role, "parts": [{"text": msg['content']}]})
             
         response_text = get_chat_response(request.message, gemini_history)
         return {"response": response_text}
